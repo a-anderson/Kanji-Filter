@@ -1,0 +1,10 @@
+# Core app
+streamlit>=1.33
+streamlit-js-eval>=0.1.7
+
+# Data handling
+pandas>=2.2
+numpy>=1.26
+
+# Optional (if you use JSON or other helpers)
+python-dateutil>=2.8
