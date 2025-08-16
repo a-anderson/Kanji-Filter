@@ -43,6 +43,8 @@ source venv/bin/activate  # macOS/Linux
 pip install -r requirements.txt
 ```
 
+---
+
 ## Usage
 
 Run the app locally with Streamlit:
