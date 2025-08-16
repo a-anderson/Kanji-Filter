@@ -14,7 +14,7 @@ A web-based interactive tool for tracking and managing your Japanese kanji knowl
 
 ---
 
-## Demo
+## Example
 
 ![Screenshot of app usage](images/example.png "Example")
 
