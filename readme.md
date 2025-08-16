@@ -25,7 +25,7 @@ A web-based interactive tool for tracking and managing your Japanese kanji knowl
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/kanji-filter-app.git
+git clone https://github.com/a-anderson/kanji-filter-app.git
 cd kanji-filter-app
 ```
 
