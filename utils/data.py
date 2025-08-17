@@ -11,8 +11,8 @@ def load_kanji_data(kanji_file, known_file):
     except FileNotFoundError:
         known_flags = {kanji: False for kanji in kanji_data.keys()}
 
-    use_columns = ["strokes", "grade", "freq", "jlpt_new", "meanings",
-                   "readings_on", "readings_kun", "wk_level"]
+    use_columns = ["meanings", "readings_on", "readings_kun", 
+                   "strokes", "grade", "freq", "jlpt_new", "wk_level"]
     df = pd.DataFrame.from_dict(kanji_data, orient="index", columns=use_columns).reset_index()
     df.rename(columns={"index": "kanji"}, inplace=True)
 
