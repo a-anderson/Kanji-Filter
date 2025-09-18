@@ -6,11 +6,11 @@ A web-based interactive tool for tracking and managing your Japanese kanji knowl
 
 ## Features
 
--   📊 **Filter Kanji** by grade, JLPT level, frequency, and WaniKani level
--   ✅ **Mark Known/Unknown** kanji directly in an interactive table
--   💾 **Save Progress** to a JSON file for persistence
--   🎯 **Progress Tracking** with live metrics and progress bar
--   🖥 **Responsive Layout** adapts to browser size
+-   **Filter Kanji** by grade, JLPT level, frequency, and WaniKani level
+-   **Mark Known/Unknown** kanji directly in an interactive table
+-   **Save Progress** to a JSON file for persistence
+-   **Progress Tracking** with live metrics and progress bar
+-   **Responsive Layout** adapts to browser size
 
 ---
 
