@@ -41,6 +41,14 @@ def sidebar_multiselect_filter(label, series, include_unknown=True):
         mask |= series.isna()
     return mask
 
+# --- KANJI SEARCH ---
+raw_search = st.sidebar.text_input(
+    "Search Kanji",
+    placeholder="🔍 e.g. 日本語",
+    label_visibility="collapsed",
+)
+search_mask = df["kanji"].isin(list(raw_search)) if raw_search else pd.Series(True, index=df.index)
+
 with st.sidebar.expander("📚 Grade"):
     grade_mask = sidebar_multiselect_filter("Grades", df["grade"])
 
@@ -71,7 +79,7 @@ elif show_only_unknown:
     toggle_mask = ~df["kanji"].map(st.session_state.known_flags).fillna(False)
 
 # --- APPLY FILTERS ---
-filtered_df = df[grade_mask & wk_mask & freq_mask & jlpt_mask & toggle_mask].copy()
+filtered_df = df[search_mask & grade_mask & wk_mask & freq_mask & jlpt_mask & toggle_mask].copy()
 filtered_df["known"] = filtered_df["kanji"].map(st.session_state.known_flags).fillna(False)
 cols = ["known", "kanji"] + [c for c in filtered_df.columns if c not in ["known", "kanji"]]
 filtered_df = filtered_df[cols]
@@ -145,7 +153,7 @@ edited_df = table_placeholder.data_editor(
     column_config=column_configuration,
     use_container_width=True,
     hide_index=True,
-    height=max(window_height - 350, 250),
+    height=min(len(st.session_state.kanji_df) * 35 + 38, max(window_height - 350, 250)),
     disabled=[c for c in st.session_state.kanji_df.columns if c != "known"],
     key=f"kanji_table_{st.session_state.refresh_table_key}",  # dynamic key
     on_change=sync_known_flags,
